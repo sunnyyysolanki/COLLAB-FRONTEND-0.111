@@ -19,13 +19,13 @@ const Signup = () => {
 
     try {
      
-      const res = await axios.post("user/signup", {
+      const res = await axios.post(`{import.meta.env.VITE_API_URL}/user/signup`, {
         name,
         email,
         password,
       },{
         headers:{
-          Authorization:`{import.meta.env.VITE_API_URL}/user/signup`
+          Authorization:`Bearer ${localStorage.getItem("token")}`
         }
 
       }
