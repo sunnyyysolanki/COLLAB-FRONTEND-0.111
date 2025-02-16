@@ -28,10 +28,15 @@ const Login = () => {
     // Add your login logic here
 
     try {
-      const res = await axios.post("user/login", {
+       const res=await axios.get(`${import.meta.env.VITE_API_URL}/user`, {
         email,
         password,
-      });
+      },{
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+     
       if (res.data.success) {
         localStorage.setItem("token", res.data.token);
         handlesuccess("successfull");
