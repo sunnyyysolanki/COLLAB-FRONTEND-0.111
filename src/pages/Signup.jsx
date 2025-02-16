@@ -1,4 +1,4 @@
-import axios from "../axios";
+import axios from "axios";
 import React, { useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { handleerror, handlesuccess } from "../../util";
@@ -18,11 +18,18 @@ const Signup = () => {
     // Add your signup logic here
 
     try {
+     
       const res = await axios.post("user/signup", {
         name,
         email,
         password,
-      });
+      },{
+        headers:{
+          Authorization:`{import.meta.env.VITE_API_URL}/user/signup`
+        }
+
+      }
+);
       if (res.data.success) {
         handlesuccess("Signup Successfull");
         navigate("/login");
