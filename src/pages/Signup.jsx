@@ -23,12 +23,9 @@ const Signup = () => {
         name,
         email,
         password,
-      },{
-        headers:{
-          Authorization:`Bearer ${localStorage.getItem("token")}`
-        }
-
       }
+
+      
 );
       if (res.data.success) {
         handlesuccess("Signup Successfull");
