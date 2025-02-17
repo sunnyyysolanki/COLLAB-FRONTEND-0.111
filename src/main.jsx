@@ -56,12 +56,12 @@ const route = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
+  <>
     <ToastContainer></ToastContainer>
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={route}></RouterProvider>
       </QueryClientProvider>
     </Provider>
-  </StrictMode>
+  </>
 );
