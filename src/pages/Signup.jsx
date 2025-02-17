@@ -18,15 +18,14 @@ const Signup = () => {
     // Add your signup logic here
 
     try {
-     
-      const res = await axios.post(`{import.meta.env.VITE_API_URL}/user/signup`, {
-        name,
-        email,
-        password,
-      }
-
-      
-);
+      const res = await axios.post(
+        `${import.meta.env.VITE_API_URL}/user/signup`,
+        {
+          name,
+          email,
+          password,
+        }
+      );
       if (res.data.success) {
         handlesuccess("Signup Successfull");
         navigate("/login");
